@@ -1,0 +1,31 @@
+<!-- user.html -->
+<div class="jumbotron text-center">
+	<h2>Search User Profiles</h2>
+	<p>Enter a single Github username below and click the button to display profile info.</p>
+
+	<input type="text" id="ghusername" ng-model="username" placeholder="Github username...">
+	<button href="#" id="ghsubmitbtn" ng-click="getGitInfo()">Pull User Data</button>
+	<div id="ghapidata" class="clearfix"></div>
+	<div ng-show="userNotFound">
+		<h2>No User Info Found</h2>
+	</div>
+	<div ng-show="loaded" class="userBlock">
+		<h2> {{user.name}}
+			<span class="smallname">(@<a href="{{user.html_url}}" target="_blank"> {{user.login}} </a>)</span>
+		</h2>
+
+		<div ng-show="reposFound" class="clearfix">
+			<div class="avi">
+				<a href="{{ user.html_url }}" target="_blank">
+					<img src="{{ user.avatar_url }}" width="80" height="80" alt="{{ user.login }}"></a>					
+				</div>
+				<p class="userDetail">Followers: {{ user.followers }} - Following: {{ user.following }}<br>Repos: {{ user.public_repos }}</p>				
+				<div class="repolist">
+				<strong>Repos List:</strong>
+				<ul>				
+					<li ng-repeat="repo in repos"><a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a></li>	
+				</ul>
+				</div>
+			</div>
+		</div>
+	</div>
