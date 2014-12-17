@@ -21,11 +21,12 @@
 				</div>
 				<p class="userDetail">Followers: {{ user.followers }} - Following: {{ user.following }}<br>Repos: {{ user.public_repos }}</p>				
 				<div class="repolist">
-				<strong>Repos List:</strong>
-				<ul>				
-					<li ng-repeat="repo in repos"><a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a></li>	
-				</ul>
+					<strong>Repos List:</strong>
+					<ul>				
+						<li ng-repeat="repo in repos"><a href="{{ repo.html_url }}" target="_blank">{{ repo.name }}</a></li>	
+					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
